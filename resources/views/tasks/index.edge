@@ -1,0 +1,21 @@
+@layout('main')
+@section('content')
+<div class="row justify-content-center">
+
+  <div class="list-group col-8 ">
+    <h1>{{title}}</h1>
+    @if(old('notification'))
+      <div class="alert alert-success" role="alert">
+        {{ old('notification')}}
+      </div>
+    @endif
+    @each(item in tasks)
+      <a href="/tasks/{{item.id}}" class="list-group-item list-group-item-action">
+        {{item.title}}
+        <i class="fa fa-btn fa-info-circle float-right"></i>
+      </a>
+    @endeach
+    <a href="/add" class="btn btn-primary mt-3">Add Task</a>
+  </div>
+</div>
+@endsection
